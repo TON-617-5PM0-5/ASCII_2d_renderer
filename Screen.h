@@ -13,8 +13,11 @@ private:
 	std::unique_ptr<IRenderable> rendered_image;
 
 public:
+	const short size_x = 120;
+	const short size_y = 30;
+
 	void repaint(std::unique_ptr<IRenderable> image);
-	void repaint();
+	//void repaint();
 	Vector2 update_size();
 	Screen();
 };
