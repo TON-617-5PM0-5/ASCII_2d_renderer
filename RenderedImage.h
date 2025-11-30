@@ -1,7 +1,7 @@
 #pragma once
 #include "IRenderable.h"
 
-class RenderedImage : IRenderable{
+class RenderedImage : public IRenderable{
 private:
 	Charimg& picture;
 public:
@@ -10,5 +10,7 @@ public:
 	Vector2 get_size() override;
 	Charimg& get_image() override;
 	bool is_visible() override;
+
+	RenderedImage(Charimg& _pic);
 };
 

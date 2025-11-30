@@ -5,7 +5,7 @@
 #include "IRenderable.h"
 #include <algorithm>
 
-typedef std::vector<IRenderable> DrawingQueue;
+typedef std::vector<IRenderable*> DrawingQueue;
 
 class Renderer {
 private:
@@ -15,7 +15,7 @@ private:
 	std::vector<char> buffer;
 
 	void update_output_size();
-	DrawingQueue& get_sorted_drawing_queue();
+	DrawingQueue get_sorted_drawing_queue();
 public:
 	Vector2 get_output_size();
 	void render();

@@ -1,5 +1,9 @@
 #include "RenderedImage.h"
 
+RenderedImage::RenderedImage(Charimg& _pic) : picture(_pic) {
+
+}
+
 Vector2 RenderedImage::get_position()
 {
 	return { 0, 0 };
@@ -24,3 +28,4 @@ bool RenderedImage::is_visible()
 {
 	return true;
 }
+
