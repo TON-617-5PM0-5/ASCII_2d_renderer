@@ -9,9 +9,13 @@
 #include <memory> 
 
 int globx = 0;
+char mod = 25;
+char dir = 1;
+char adder = 49;
+char dira = 1;
 
 static char gener1() {
-    return (globx++ % 25) + 49;
+    return (globx++ % mod) + adder;
 }
 
 int main()
@@ -25,15 +29,27 @@ int main()
     while (true) {
         std::generate(x1.begin(), x1.end(), gener1);
 
-        //Charimg* picture = new Charimg(Sizes, x1);
-        //IRenderable* ResultImage = new RenderedImage(*picture);
-
         Charimg picture (Sizes, x1);
         RenderedImage ResultImage (picture);
 
         MyScreen.repaint(ResultImage);
-        Sleep(10);
+        Sleep(100);
         globx++;
+        if (mod > 35) {
+            dir = -1;
+        }
+        else if (mod < 25) {
+            dir = 1;
+        }
+        if (adder > 63) {
+            dira = -1;
+        }
+        else if (adder < 32) {
+            dira = 1;
+        }
+        adder += dira;
+        mod += dir;
+
     }
     return 0;
 }
